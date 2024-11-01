@@ -35,6 +35,13 @@ pipeline:
                                 command: |
                                   curl -sSL install.astronomer.io | sudo bash -s
                                   astro deploy $rcm2yvgdiw059201i3kwpar6ep -f
+              - step:
+                  type: Run
+                  name: Run_2
+                  identifier: Run_2
+                  spec:
+                    shell: Bash
+                    command: astro dev deployy
           platform:
             os: MacOS
             arch: Arm64
