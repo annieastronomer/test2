@@ -1,5 +1,6 @@
 inputSet:
-  name: Merge to Main
+  name: merge_main
+  tags: {}
   identifier: Merge_to_Main
   orgIdentifier: default
   projectIdentifier: default_project
