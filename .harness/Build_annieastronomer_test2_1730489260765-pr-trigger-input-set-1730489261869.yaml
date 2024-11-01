@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_annieastronomer_test2_1730489260765-pr-trigger-input-set
+  identifier: Build_annieastronomer_test2_1730489260765prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_annieastronomer_test2_1730489260765
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
