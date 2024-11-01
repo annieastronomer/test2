@@ -41,6 +41,7 @@ pipeline:
           runtime:
             type: Docker
             spec: {}
+        description: ""
   properties:
     ci:
       codebase:
