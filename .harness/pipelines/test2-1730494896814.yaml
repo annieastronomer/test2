@@ -18,13 +18,16 @@ pipeline:
                   identifier: Echo_Welcome_Message
                   spec:
                     shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    command: |-
+                      echo $ASTRO_DEPLOYMENT_ID
+                      echo $ASTRO_API_TOKEN
           platform:
             os: Linux
             arch: Arm64
           runtime:
             type: Cloud
             spec: {}
+        description: ""
   properties:
     ci:
       codebase:
@@ -32,3 +35,14 @@ pipeline:
         repoName: annieastronomer/test2
         build: <+input>
   tags: {}
+  variables:
+    - name: ASTRO_DEPLOYMENT_ID
+      type: String
+      description: Astro Deployment ID
+      required: true
+      value: cm2yvgdiw058z01i3n3ik9riu
+    - name: ASTRO_API_TOKEN
+      type: String
+      description: Astro Workspace API TOKEN
+      required: true
+      value: eyJhbGciOiJSUzI1NiIsImtpZCI6ImNsb2Q0aGtqejAya3AwMWozdWNqbzJwOHIiLCJ0eXAiOiJKV1QifQ.eyJhcGlUb2tlbklkIjoiY20yeXJvaXI3MDRqMTAxaTNpaGhna2c4aSIsImF1ZCI6ImFzdHJvbm9tZXItZWUiLCJpYXQiOjE3MzA0Njc1MTgsImlzQXN0cm9ub21lckdlbmVyYXRlZCI6dHJ1ZSwiaXNJbnRlcm5hbCI6ZmFsc2UsImlzcyI6Imh0dHBzOi8vYXBpLmFzdHJvbm9tZXIuaW8iLCJraWQiOiJjbG9kNGhranowMmtwMDFqM3Vjam8ycDhyIiwicGVybWlzc2lvbnMiOlsiYXBpVG9rZW5JZDpjbTJ5cm9pcjcwNGoxMDFpM2loaGdrZzhpIiwid29ya3NwYWNlSWQ6Y2x6OGRxbHF3MTJyNzAxa3huM3c3YmZzZCIsIm9yZ2FuaXphdGlvbklkOmNsa3ZoM2I0NjAwM20wMWtiYWxnd3dkY3kiLCJvcmdTaG9ydE5hbWU6Y2xrdmgzYjQ2MDAzbTAxa2JhbGd3d2RjeSJdLCJzY29wZSI6ImFwaVRva2VuSWQ6Y20yeXJvaXI3MDRqMTAxaTNpaGhna2c4aSB3b3Jrc3BhY2VJZDpjbHo4ZHFscXcxMnI3MDFreG4zdzdiZnNkIG9yZ2FuaXphdGlvbklkOmNsa3ZoM2I0NjAwM20wMWtiYWxnd3dkY3kgb3JnU2hvcnROYW1lOmNsa3ZoM2I0NjAwM20wMWtiYWxnd3dkY3kiLCJzdWIiOiJjbHo3OGhuYzUweHRsMDFqeWFyMXp3am5rIiwidmVyc2lvbiI6ImNtMnlyb2lyNzA0ajAwMWkzc2NhcDdpM2cifQ.N6X34SW6qve0CqC04NUtXjJlaN66bJio7u-JTqP6Hl9ld4DnH95CoBZv0vOjm1BXwO4nX93ssnyjXTX1s-9t2d9Oxe4DD5pGxNokrunTPk09G4zkGGJGQuLlm7KsycqJFURHBh7FfegCDmpQH52dOk64J6y1AefoOg2Nnq5kaYvW_Bj4BHPFE2rsHmVLJwquyBHbYdBOvlLgo80PsnPk7n8OIuQP1YUlRyUu6_-YEET6Fqlly75Mo7hb6rBndv8X4qYORAaIQQ_6KWodAtN7FJjFrjSX7NSkEQVhU-D8fBhOxgay46WvM0ry658sqRtwXrjJiqCIApobVBj6X2fhtA
