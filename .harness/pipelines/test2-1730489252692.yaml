@@ -14,11 +14,27 @@ pipeline:
             steps:
               - step:
                   type: Run
-                  name: Echo Welcome Message
+                  name: install cli
                   identifier: Echo_Welcome_Message
                   spec:
-                    shell: Sh
-                    command: echo "Welcome to Harness CI"
+                    shell: Bash
+                    command: |-
+                      jobs:
+
+                        build_image_and_deploy:
+                          docker:
+                            - image: cimg/base:stable
+                          # Add steps to the job
+                          # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+                          steps:
+                            - setup_remote_docker:
+                                version: 20.10.11
+                            - checkout
+                            - run:
+                                name: "Deploy to Astro"
+                                command: |
+                                  curl -sSL install.astronomer.io | sudo bash -s
+                                  astro deploy $rcm2yvgdiw059201i3kwpar6ep -f
           platform:
             os: MacOS
             arch: Arm64
